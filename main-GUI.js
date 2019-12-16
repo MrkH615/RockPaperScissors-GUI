@@ -162,6 +162,7 @@ function game() {
     if (e.target.tagName == 'BUTTON') {
       for (let gameCounter = 1; gameCounter < 6; gameCounter++) { 
         playOneRound();
+        console.log(`round ${gameCounter}`);
         console.log(result); 
       }
     }
