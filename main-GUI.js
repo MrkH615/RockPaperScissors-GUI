@@ -24,7 +24,7 @@ scissors.addEventListener('click', playerChooses = () => {
 });
 */
 
-//computerPlay() doesn't seem to do anything when written as arrow function
+
  function computerPlay() {  
   let min;
   let max;
@@ -68,7 +68,7 @@ function playOneRound() {
 let paper = document.querySelector('#paper');
   paper.addEventListener('click', playerChooses = () => {
     playerSelection = 'paper';
-    computerPlay();
+    computerPlay();    
     console.log(playerSelection);
     return  playerSelection;
   });
@@ -109,7 +109,7 @@ scissors.addEventListener('click', playerChooses = () => {
 /*
 document.addEventListener('click', (e) => {
   if (e.target.tagName == 'BUTTON') {
-    */
+   */ 
    
 
     if (playerSelection === computerSelection) { 
@@ -147,26 +147,29 @@ document.addEventListener('click', (e) => {
       console.log(result);
       return result;
     } 
- // }
-//});
-
+ /*   
+  }
+});
+*/
 }
 
 function game() {
 
   let result = 0;
+  let gameCounter = 0;
   //let playerPoints = 0;
   //let computerPoints = 0;
   
   document.addEventListener('click', (e) => {
-    if (e.target.tagName == 'BUTTON') {
-      for (let gameCounter = 1; gameCounter < 6; gameCounter++) { 
-        playOneRound();
+    if (e.target.tagName == 'BUTTON') { 
+      for (gameCounter = 1; gameCounter < 6; gameCounter++) { 
         console.log(`round ${gameCounter}`);
         console.log(result); 
+        playOneRound();
+        
       }
     }
-  });
+  }); 
         console.log(`total player points:  ${playerPoints}`);
         console.log(`total computer points:  ${computerPoints}`);
 
@@ -180,10 +183,11 @@ function game() {
       
 }  
 
-/*document.addEventListener('click', (e) => {
+/* document.addEventListener('click', (e) => {
   if (e.target.tagName == 'BUTTON') { */
     game();
-/*
+
+/*    
   }
 });
 */
