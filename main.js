@@ -41,7 +41,7 @@ scissors.addEventListener('click', playerChooses = () => {
       computerSelection = "scissors";
    }
  
- console.log(`computerSelection ${computerSelection}`);
+ //console.log(`computerSelection ${computerSelection}`);
  return computerSelection;
  
 }
@@ -85,16 +85,16 @@ scissors.addEventListener('click', playerChooses = () => {
   function playerWins(playerSelection, computerSelection) {
     result = `Computer loses!  ${playerSelection} beats ${computerSelection}`;
     playerPoints++;
-    console.log(`Player ${playerPoints}`);
     console.log(result);
+    console.log(`Player ${playerPoints}`);
     return result;
   } 
 
   function computerWins(playerSelection, computerSelection) {
       result = `You lose! ${computerSelection} beats ${playerSelection}`;
      computerPoints++;
+     console.log(result);
      console.log(`Computer ${computerPoints}`);
-       console.log(result);
       return result;
   } 
 
@@ -111,53 +111,60 @@ let roundNumber = 0;
       if (roundNumber < 5) {
 
     if (playerSelection === computerSelection) { 
-      result = tie(playerSelection, computerSelection);
       roundNumber++;
       console.log(`round ${roundNumber}`);
-      console.log(result);
+      console.log(`computerSelection ${computerSelection}`);
+      result = tie(playerSelection, computerSelection);
+     // console.log(result);
       //return result;
 
     }  else  if (playerSelection ==="rock" && computerSelection === "paper") {
-      result = computerWins(playerSelection, computerSelection);
       roundNumber++;
       console.log(`round ${roundNumber}`);
-     console.log(result);
+      console.log(`computerSelection ${computerSelection}`);
+      result = computerWins(playerSelection, computerSelection);
+     //console.log(result);
       //return result;
 
     }  else if (playerSelection === "rock"  && computerSelection === "scissors") {
-      result = playerWins(playerSelection, computerSelection);
       roundNumber++;
       console.log(`round ${roundNumber}`);
-      console.log(result);
+      console.log(`computerSelection ${computerSelection}`);
+      result = playerWins(playerSelection, computerSelection);
+      //console.log(result);
     //return result;
 
 
     } else if (playerSelection === "paper"  && computerSelection === "scissors") {
-      result = computerWins(playerSelection, computerSelection);
       roundNumber++;
       console.log(`round ${roundNumber}`);
-      console.log(result);
+      console.log(`computerSelection ${computerSelection}`);
+      result = computerWins(playerSelection, computerSelection);
+      //console.log(result);
     //return result;
 
     }   else if (playerSelection === "paper" && computerSelection === "rock") {
-      result = playerWins(playerSelection, computerSelection);
       roundNumber++;
       console.log(`round ${roundNumber}`);
-      console.log(result);
+      console.log(`computerSelection ${computerSelection}`);
+      result = playerWins(playerSelection, computerSelection);
+      //console.log(result);
     //return result;
 
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-      result = playerWins(playerSelection, computerSelection); 
       roundNumber++;
       console.log(`round ${roundNumber}`);
-      console.log(result);
+      console.log(`computerSelection ${computerSelection}`);
+      result = playerWins(playerSelection, computerSelection); 
+     // console.log(result);
     //return result;
 
     }  else if (playerSelection === "scissors" && computerSelection === "rock") {
-      result = computerWins(playerSelection, computerSelection);
       roundNumber++;
       console.log(`round ${roundNumber}`);
-      console.log(result); 
+      console.log(`computerSelection ${computerSelection}`);
+      result = computerWins(playerSelection, computerSelection);
+     // console.log(result); 
     //return result;
     }  
   } else {
