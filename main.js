@@ -1,6 +1,46 @@
-let computerSelection; //= '';
+let computerSelection; 
 
-let playerSelection; //= '';
+let playerSelection; 
+
+let playerPoints = 0;
+
+let computerPoints = 0;
+
+let result = '';
+
+const message = document.querySelector('#message');
+
+const computerChoice = document.querySelector('#computerChoice');
+
+const winner = document.querySelector('#winner');
+
+
+function writeMessage(result){
+      message.textContent = result;
+}  
+
+function writeComputerChoice() {
+  computerChoice.textContent = `The computer chooses ${computerSelection}`;
+}
+
+function nameWinner(playerPoints, computerPoints) {
+
+const winnerMessage = document.createElement('p');
+winner.classList.add('winnerMessage');
+
+  
+
+   if (playerPoints > computerPoints) {
+      winner.textContent = "Game over! You win!";
+   } else if (computerPoints > playerPoints) {
+    winner.textContent = "Game over!  You lose!";
+   } else {
+    winner.textContent = "Game over!  It's a tie!";
+   }
+   
+   winnerMessage.appendChild("Game over");
+}
+
 
 
 
@@ -21,6 +61,10 @@ scissors.addEventListener('click', playerChooses = () => {
     playerSelection = 'scissors';
 });
 */
+
+
+
+
 
 //computerPlay() doesn't seem to do anything when written as arrow function
  function computerPlay() {  
@@ -52,8 +96,11 @@ scissors.addEventListener('click', playerChooses = () => {
 function playOneRound() {
 
   //computerPlay() inside playerChooses to make computerPlay() wait until player clicks a button
-  let playerPoints = 0;
-  let computerPoints = 0;
+  //let playerPoints = 0;
+  //let computerPoints = 0;
+
+  //playerPoints = 0;
+  //computerPoints = 0;
 
   let rock = document.querySelector('#rock');
     rock.addEventListener('click', playerChooses = () => {
@@ -86,7 +133,10 @@ scissors.addEventListener('click', playerChooses = () => {
     result = `Computer loses!  ${playerSelection} beats ${computerSelection}`;
     playerPoints++;
     console.log(result);
+    writeComputerChoice();
+    writeMessage(`${result}`);
     console.log(`Player ${playerPoints}`);
+    makeHumanScore(playerPoints);
     return result;
   } 
 
@@ -94,12 +144,17 @@ scissors.addEventListener('click', playerChooses = () => {
       result = `You lose! ${computerSelection} beats ${playerSelection}`;
      computerPoints++;
      console.log(result);
+     writeComputerChoice();
+     writeMessage(`${result}`);
      console.log(`Computer ${computerPoints}`);
+     makeComputerScore(computerPoints);
       return result;
   } 
 
   function tie(playerSelection, computerSelection) {
      result = `It's a tie!`;
+     writeComputerChoice();
+    writeMessage(`${result}`);
     console.log(result);
      return result;
   }  
@@ -168,7 +223,9 @@ let roundNumber = 0;
     //return result;
     }  
   } else {
-     console.log(`total player points:  ${playerPoints}`);
+     
+    
+    console.log(`total player points:  ${playerPoints}`);
      console.log(`total computer points:  ${computerPoints}`);
 
     if (playerPoints > computerPoints) {
@@ -179,12 +236,30 @@ let roundNumber = 0;
           console.log ("It's a tie!");
     }
     console.log("Game over");
+
+    nameWinner(playerPoints, computerPoints);
   }
 }
  });
 }
 
+function makeHumanScore(playerPoints) {
+  const humanPoints = document.querySelector('#human');
+  humanPoints.textContent = `Human:  ${playerPoints}`;
 
+} //works, but not when writeMessage called
+
+function makeComputerScore(computerPoints) {
+  const cmptrPoints = document.querySelector('#computer');
+  cmptrPoints.textContent=`Computer:  ${computerPoints}`;
+} //works, but not when writeMessage called
+
+/*
+function writeMessage(result){
+  const message = document.querySelector('#message');
+  message.textContent = result;
+}  // TypeError:  message is null main.js 214.3
+*/
 
 /*
 document.addEventListener('click', (e) => {
