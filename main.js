@@ -12,7 +12,7 @@ const message = document.querySelector('#message');
 
 const computerChoice = document.querySelector('#computerChoice');
 
-const winner = document.querySelector('#winner');
+const winner = document.querySelector('#winner > p');
 
 
 function writeMessage(result){
@@ -25,9 +25,10 @@ function writeComputerChoice() {
 
 function nameWinner(playerPoints, computerPoints) {
 
+  /*
 const winnerMessage = document.createElement('p');
 winner.classList.add('winnerMessage');
-
+*/
   
 
    if (playerPoints > computerPoints) {
@@ -38,7 +39,7 @@ winner.classList.add('winnerMessage');
     winner.textContent = "Game over!  It's a tie!";
    }
    
-   winnerMessage.appendChild("Game over");
+   //winnerMessage.appendChild("Game over");
 }
 
 

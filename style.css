@@ -1,0 +1,50 @@
+* {
+    font-family: Palatino, sans-serif;
+}
+
+header {
+  font-family: Palatino, sans-serif;
+  font-size:  3rem;
+  color: 
+}
+
+button {
+    font-size: 1rem;
+    border-color: black;
+    background-color: white;
+    
+}
+
+#score {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+#score > div  {
+   margin: 1rem;
+    border-style: groove;
+    border-color: darkorchid4;
+    border-width: .25rem;
+}
+
+#message, #computerChoice, #winner {
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+#winner {
+    margin: 1rem;
+    border-style: ridge;
+    border-width: .25rem;
+    border-color: black;
+    border-radius: .7rem;
+    color: red;
+}
+
+.blink_me {
+    animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+    100% {opacity: 0;}
+}
