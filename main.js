@@ -25,49 +25,29 @@ function writeComputerChoice() {
 
 function nameWinner(playerPoints, computerPoints) {
 
-  /*
-const winnerMessage = document.createElement('p');
-winner.classList.add('winnerMessage');
-*/
+ 
   
 
    if (playerPoints > computerPoints) {
-      winner.textContent = "Game over! You win!";
+      winner.textContent = "Game over! You win! Reload this page to play again.  ";
    } else if (computerPoints > playerPoints) {
-    winner.textContent = "Game over!  You lose!";
+    winner.textContent = "Game over!  You lose!  Reload this page to play again.  ";
    } else {
-    winner.textContent = "Game over!  It's a tie!";
+    winner.textContent = "Game over!  It's a tie!  Reload this page to play again.  ";
    }
    
-   //winnerMessage.appendChild("Game over");
+   
 }
 
 
 
 
-/*
-let rock = document.querySelector('#rock');
-rock.addEventListener('click', playerChooses = () => {
-    playerSelection = 'rock';
-   
-});
-        
-let paper = document.querySelector('#paper');
-paper.addEventListener('click', playerChooses = () => {
-    playerSelection = 'paper';
-});
-
-let scissors= document.querySelector('#scissors');
-scissors.addEventListener('click', playerChooses = () => {
-    playerSelection = 'scissors';
-});
-*/
 
 
 
 
 
-//computerPlay() doesn't seem to do anything when written as arrow function
+
  function computerPlay() {  
   let min;
   let max;
@@ -76,7 +56,7 @@ scissors.addEventListener('click', playerChooses = () => {
      max = Math.floor(3);
      return Math.floor(Math.random() * (max - min + 1)) + min;
    }
-   //randomInteger();
+   
 
    if (randomInteger(min, max) === 1) {
      computerSelection = "rock";
@@ -86,22 +66,17 @@ scissors.addEventListener('click', playerChooses = () => {
       computerSelection = "scissors";
    }
  
- //console.log(`computerSelection ${computerSelection}`);
+
  return computerSelection;
  
 }
  
-//computerPlay();
 
 
-function playOneRound() {
 
-  //computerPlay() inside playerChooses to make computerPlay() wait until player clicks a button
-  //let playerPoints = 0;
-  //let computerPoints = 0;
+function playGame() {
 
-  //playerPoints = 0;
-  //computerPoints = 0;
+  
 
   let rock = document.querySelector('#rock');
     rock.addEventListener('click', playerChooses = () => {
@@ -127,8 +102,7 @@ scissors.addEventListener('click', playerChooses = () => {
     return  playerSelection;
 });
 
-//console.log(playerSelection);
-//computerPlay();
+
 
   function playerWins(playerSelection, computerSelection) {
     result = `Computer loses!  ${playerSelection} beats ${computerSelection}`;
@@ -171,24 +145,21 @@ let roundNumber = 0;
       console.log(`round ${roundNumber}`);
       console.log(`computerSelection ${computerSelection}`);
       result = tie(playerSelection, computerSelection);
-     // console.log(result);
-      //return result;
+     
 
     }  else  if (playerSelection ==="rock" && computerSelection === "paper") {
       roundNumber++;
       console.log(`round ${roundNumber}`);
       console.log(`computerSelection ${computerSelection}`);
       result = computerWins(playerSelection, computerSelection);
-     //console.log(result);
-      //return result;
+     
 
     }  else if (playerSelection === "rock"  && computerSelection === "scissors") {
       roundNumber++;
       console.log(`round ${roundNumber}`);
       console.log(`computerSelection ${computerSelection}`);
       result = playerWins(playerSelection, computerSelection);
-      //console.log(result);
-    //return result;
+     
 
 
     } else if (playerSelection === "paper"  && computerSelection === "scissors") {
@@ -196,24 +167,21 @@ let roundNumber = 0;
       console.log(`round ${roundNumber}`);
       console.log(`computerSelection ${computerSelection}`);
       result = computerWins(playerSelection, computerSelection);
-      //console.log(result);
-    //return result;
+      
 
     }   else if (playerSelection === "paper" && computerSelection === "rock") {
       roundNumber++;
       console.log(`round ${roundNumber}`);
       console.log(`computerSelection ${computerSelection}`);
       result = playerWins(playerSelection, computerSelection);
-      //console.log(result);
-    //return result;
+      
 
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
       roundNumber++;
       console.log(`round ${roundNumber}`);
       console.log(`computerSelection ${computerSelection}`);
       result = playerWins(playerSelection, computerSelection); 
-     // console.log(result);
-    //return result;
+    
 
     }  else if (playerSelection === "scissors" && computerSelection === "rock") {
       roundNumber++;
@@ -266,7 +234,7 @@ function writeMessage(result){
 document.addEventListener('click', (e) => {
   if (e.target.tagName == 'BUTTON') {
  */   
-    playOneRound();
+    playGame();
   /*  
   }
 });
@@ -324,7 +292,7 @@ document.addEventListener('click', (e) => {
 */
 
 
-//playOneRound();
+//playGame();
 
 
 
@@ -385,7 +353,7 @@ let max;
         //let computerPoints = 0;
 
 // compares playerSelection, computerSelection declares winner
-        function playOneRound() {  
+        function playGame() {  
         
 
           let rock = document.querySelector('#rock');
@@ -406,8 +374,8 @@ let max;
             computerSelection = computerPlay();
             playerSelection = playerChoice();
 
-            //console.log(`playerSelection in playOneRound: ${playerSelection}`);
-            //console.log(`computerSelection in playOneRound: ${computerSelection}`);
+            //console.log(`playerSelection in playGame: ${playerSelection}`);
+            //console.log(`computerSelection in playGame: ${computerSelection}`);
 
 
             function playerWins(playerSelection, computerSelection) {
@@ -469,7 +437,7 @@ function game() {
  
     
   for (let gameCounter = 1; gameCounter < 6; gameCounter++) { 
-        playOneRound(playerSelection, computerSelection);
+        playGame(playerSelection, computerSelection);
         console.log(result); 
    }
 
@@ -489,5 +457,5 @@ function game() {
 //game();
 */
 
-//playOneRound(playerSelection, computerSelection);  //console displays computerSelection correctly
+//playGame(playerSelection, computerSelection);  //console displays computerSelection correctly
 //console.log(result);

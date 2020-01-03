@@ -42,6 +42,9 @@ button {
 
 #paper{
     background-image: url("lined-paper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
 
 #scissors {
