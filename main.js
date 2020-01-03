@@ -1,3 +1,6 @@
+/* Rock Paper Scissors - DOM Manipulation version project from The Odin Project Web Development 101 course
+  https://www.theodinproject.com/courses/web-development-101/lessons/dom-manipulation?ref=lnav#learning-outcomes */
+
 let computerSelection; 
 
 let playerSelection; 
