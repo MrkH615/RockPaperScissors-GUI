@@ -26,19 +26,17 @@ function writeComputerChoice() {
   computerChoice.textContent = `The computer chooses ${computerSelection}.  `;
 }
 
-function nameWinner(playerPoints, computerPoints) {  // can be triggered anytime after the player's first click
+function nameWinner(playerPoints, computerPoints) {
 
    if (playerPoints > computerPoints) {
       winner.textContent = "Game over! You win!  Click anywhere on page to play again.  ";
    } else if (computerPoints > playerPoints) {
     winner.textContent = "Game over!  You lose!  Click anywhere on page to play again.  ";
-   } 
-   /*
-   else {
+   } else {
     winner.textContent = "Game over!  It's a tie! Click anywhere on page to play again.  ";
    }
-*/
-   document.addEventListener('click', (event) => {
+
+   document.addEventListener('click', (event) => {  //seems to work even before nameWinner() called
      window.location.reload();
    });
 }
@@ -114,41 +112,43 @@ scissors.addEventListener('click', playerChooses = () => {
 
 let roundNumber = 0;
 
+
   document.addEventListener('click', (e) => {
     if (e.target.tagName == 'BUTTON') {
 
-     if (playerPoints < 5 && computerPoints < 5) {  //stops once one side get 5 points, but screen not on buttons needs to be clicked to run nameWinner
-   
-      if (playerSelection === computerSelection) { 
-        roundNumber++;
-        result = tie(playerSelection, computerSelection);
+      if (roundNumber < 5) {
+
+
+    if (playerSelection === computerSelection) { 
+      roundNumber++;
+      result = tie(playerSelection, computerSelection);
      
-      }  else  if (playerSelection ==="rock" && computerSelection === "paper") {
-        roundNumber++;
-        result = computerWins(playerSelection, computerSelection);
+    }  else  if (playerSelection ==="rock" && computerSelection === "paper") {
+      roundNumber++;
+      result = computerWins(playerSelection, computerSelection);
      
-      }  else if (playerSelection === "rock"  && computerSelection === "scissors") {
-        roundNumber++;
-        result = playerWins(playerSelection, computerSelection);
+    }  else if (playerSelection === "rock"  && computerSelection === "scissors") {
+      roundNumber++;
+      result = playerWins(playerSelection, computerSelection);
      
-      } else if (playerSelection === "paper"  && computerSelection === "scissors") {
-        roundNumber++;
-        result = computerWins(playerSelection, computerSelection);
+    } else if (playerSelection === "paper"  && computerSelection === "scissors") {
+      roundNumber++;
+      result = computerWins(playerSelection, computerSelection);
       
-      }   else if (playerSelection === "paper" && computerSelection === "rock") {
-        roundNumber++;
-        result = playerWins(playerSelection, computerSelection);
+    }   else if (playerSelection === "paper" && computerSelection === "rock") {
+      roundNumber++;
+      result = playerWins(playerSelection, computerSelection);
       
-      } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        roundNumber++;
-        result = playerWins(playerSelection, computerSelection); 
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+      roundNumber++;
+      result = playerWins(playerSelection, computerSelection); 
     
-      }  else if (playerSelection === "scissors" && computerSelection === "rock") {
-        roundNumber++;
-        result = computerWins(playerSelection, computerSelection);
-      }  
-    } 
-  } else {
+    }  else if (playerSelection === "scissors" && computerSelection === "rock") {
+      roundNumber++;
+      result = computerWins(playerSelection, computerSelection);
+    }  
+  } 
+} else {
    
     nameWinner(playerPoints, computerPoints);
   }

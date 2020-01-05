@@ -4,4 +4,5 @@ Done for the Dom Mannipulation unit of the Web Development 101 course of the Odi
 
 * Making css, html and js work together.
 * Using event listeners for the user to interact with the program.
+* Researching and trying out many ways of accomplishing a task if one way doensn't work.
 * 
