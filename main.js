@@ -26,21 +26,19 @@ function writeComputerChoice() {
   computerChoice.textContent = `The computer chooses ${computerSelection}.  `;
 }
 
-function nameWinner(playerPoints, computerPoints) {  // can be triggered anytime after the player's first click
-
-   if (playerPoints > computerPoints) {
-      winner.textContent = "Game over! You win!  Click anywhere on page to play again.  ";
-   } else if (computerPoints > playerPoints) {
-    winner.textContent = "Game over!  You lose!  Click anywhere on page to play again.  ";
+function nameWinner(playerPoints, computerPoints) { 
+  
+   if (playerPoints >= 5) {
+     winner.textContent = "Game over! You win!  Click anywhere on page to play again.  ";
+     document.addEventListener('click', (event) => {
+      window.location.reload();
+    });
+   } else if (computerPoints >= 5) {
+       winner.textContent = "Game over!  You lose!  Click anywhere on page to play again.  ";
+       document.addEventListener('click', (event) => {
+         window.location.reload();
+    });
    } 
-   /*
-   else {
-    winner.textContent = "Game over!  It's a tie! Click anywhere on page to play again.  ";
-   }
-*/
-   document.addEventListener('click', (event) => {
-     window.location.reload();
-   });
 }
 
  function computerPlay() {  
@@ -49,7 +47,7 @@ function nameWinner(playerPoints, computerPoints) {  // can be triggered anytime
    function randomInteger(min, max) {  
      min = Math.ceil(1);
      max = Math.floor(3);
-     return Math.floor(Math.random() * (max - min + 1)) + min;
+     return Math.floor(Math.random() * (max - min + 1)) + min; 
    }
    
    if (randomInteger(min, max) === 1) {
@@ -110,14 +108,15 @@ scissors.addEventListener('click', playerChooses = () => {
      writeComputerChoice();
     writeMessage(`${result}`);
      return result;
-  }  
+  }   
 
 let roundNumber = 0;
 
-  document.addEventListener('click', (e) => {
-    if (e.target.tagName == 'BUTTON') {
 
-     if (playerPoints < 5 && computerPoints < 5) {  //stops once one side get 5 points, but screen not on buttons needs to be clicked to run nameWinner
+  document.addEventListener('click', startGame = (e) => {
+    if (e.target.tagName == 'BUTTON') {    
+
+   if (playerPoints < 5 && computerPoints < 5) {  
    
       if (playerSelection === computerSelection) { 
         roundNumber++;
@@ -148,13 +147,14 @@ let roundNumber = 0;
         result = computerWins(playerSelection, computerSelection);
       }  
     } 
-  } else {
-   
     nameWinner(playerPoints, computerPoints);
-  }
- 
+  } 
+  
+
 });
+
 }
+
 
 function makeHumanScore(playerPoints) {
   const humanPoints = document.querySelector('#human');
@@ -167,4 +167,5 @@ function makeComputerScore(computerPoints) {
 } 
 
     playGame();
+    
   
