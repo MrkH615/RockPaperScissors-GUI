@@ -3,7 +3,6 @@
 
 * {
     font-family: Palatino, sans-serif;
-    //color: #68228b;
     color:  black;
 }
 
@@ -20,7 +19,6 @@ header {
   font-size:  2rem;
   margin: auto;
   width: 50%;
-  /*margin: 1rem auto 1rem;*/
 }
 
 
